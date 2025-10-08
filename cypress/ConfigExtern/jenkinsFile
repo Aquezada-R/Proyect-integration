@@ -1,0 +1,83 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs "NodeJS"
+    }
+
+    environment {
+        CYPRESS_CACHE_FOLDER = "${WORKSPACE}/.cache/Cypress"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'QA',
+                    url: 'https://github.com/Aquezada-R/Proyect-integration',
+                    credentialsId: 'github-cred'
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install -g newman cypress'
+                sh 'npm install'
+            }
+        }
+
+        stage('Run Postman tests') {
+            steps {
+                sh 'newman run postman/bookstore_collection.json --reporters cli,junit --reporter-junit-export results/postman-results.xml'
+            }
+            post {
+                always {
+                    junit 'results/postman-results.xml'
+                }
+            }
+        }
+
+        stage('Run Cypress tests') {
+            steps {
+                sh 'npx cypress run --spec "cypress/e2e/**/*.cy.js" --reporter junit --reporter-options "mochaFile=results/cypress-[hash].xml"'
+            }
+            post {
+                always {
+                    junit 'results/cypress-*.xml'
+                }
+            }
+        }
+
+        stage('Run JMeter tests') {
+            steps {
+                sh '''
+                mkdir -p results
+                jmeter -n -t jmeter/bookstore_testplan.jmx -l results/jmeter-results.jtl -e -o results/report
+                '''
+            }
+            post {
+                always {
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'results/report',
+                        reportFiles: 'index.html',
+                        reportName: 'JMeter Report'
+                    ])
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline finalizado"
+        }
+        failure {
+            echo "Fallaron pruebas, revisa logs"
+        }
+        success {
+            echo "Todo OK"
+        }
+    }
+}

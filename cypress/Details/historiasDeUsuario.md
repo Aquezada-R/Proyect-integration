@@ -4,14 +4,14 @@
 |**HU** | **Tarea** | **Herramienta**|
 |-----|-------|----------------------------------------------------|
 | HU1 | Crear collection en Postman para buscar libros | Postman|
-|HU1 |Crear tests automatizados en Cypress para la UI de búsqueda | Cypress|
-|HU2 | Crear requests de registro y login en Postman | Postman|
-|HU2 | Validar JWT en Cypress para rutas protegidas | Cypress|
-|HU3 | Crear pruebas de agregar/eliminar libro en Postman | Postman|
-|HU3 | Automatizar UI de biblioteca personal en Cypress | Cypress|
-|HU4 | Configurar plan de prueba de carga en JMeter | JMeter|
-|HU4 | Generar reportes de performance y errores | JMeter|
-|HU5 | Crear workflow en n8n para alertas | n8n|
+|HU2 |Crear tests automatizados en Cypress para la UI de búsqueda | Cypress|
+|HU3 | Crear requests de registro y login en Postman | Postman|
+|HU4 | Validar JWT en Cypress para rutas protegidas | Cypress|
+|HU5 | Crear pruebas de agregar/eliminar libro en Postman | Postman|
+|HU6 | Automatizar UI de biblioteca personal en Cypress | Cypress|
+|HU7 | Configurar plan de prueba de carga en JMeter | JMeter|
+|HU8 | Generar reportes de performance y errores | JMeter|
+|HU9 | Crear workflow en n8n para alertas | n8n|
 |Todas | Configurar pipeline en Jenkins con ejecución de tests | Jenkins|
 |Todas | Versionar todo el proyecto en GitHub | Git/GitHub|
 

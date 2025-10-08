@@ -14,7 +14,6 @@
 
 7. Tests de JMeter
 
-8. n8n → automatizar alertas (ejemplo: si una prueba falla, mandar un correo o Slack).
+8. n8n → automatizar alertas (ejemplo: si una prueba falla, mandar un correo).
 
 9. Git/GitHub → versionado de tu suite de pruebas y pipeline.
-

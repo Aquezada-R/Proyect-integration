@@ -1,15 +1,27 @@
-class Links {
-      
-    HomePageLink() {
-        cy.visit('https://demoqa.com/');
+class Links{
+
+    homePageLink(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/');
     }
 
-    loginPageLink() {
-        cy.visit('https://demoqa.com/login');
+    loginPageLink(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/login');
     }
 
-    booksPageLink() {
-        cy.visit('https://demoqa.com/books');
+    registrerPageLink(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/register');
+    }
+
+    perfilPageLink(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/profile/testuser');
+    }
+
+    articLink(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/profile/testuserfelipefelipefelipefelipefelipe');
+    }
+
+    artiCKcReate(){
+        cy.visit('https://conduit-realworld-example-app.fly.dev/#/article/el-relato');
     }
 }
 
