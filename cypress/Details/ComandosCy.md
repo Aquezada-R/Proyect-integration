@@ -1,5 +1,8 @@
 # Comandos utilizados en las pruebas y que hacen
 
+## Enlace a cheet sheet
+* https://docs.cypress.io/api/commands/and
+
 ## Comandos para traer datos
 ~~~ 
 cy.visit();
